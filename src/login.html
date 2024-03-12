@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+</head>
+<body>
+    <form id="loginForm">
+        <label for="email">Email:</label> 
+        <input type="email" name="email" id="email" placeholder="email cím">
+        <label for="pwd">Jelszó:</label>
+        <input type="password" name="password" id="pwd" placeholder="jelszó">   
+        <button type="button" onclick="login()">Login</button>   
+    </form>
+</body>
+<script>
+       
+       
+       
+       
+       function login() {
+        var formocska = document.getElementById("loginForm") 
+        var data = new FormData(formocska)
+        authFetch("http://localhost:8000/api/login",data)
+        
+       }
+      
+
+</script>
+</html>

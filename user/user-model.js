@@ -4,18 +4,7 @@ const validator = require("email-validator");
 const jwt = require("jsonwebtoken");
 const User = require("./user");
 
-// ez a függvény visszaadja az összes felhasználó adatát
- function getAllUserInfos(req,res) {
-    var con = mysql.createConnection(config.database);
-    con.connect(function(err) {
-        if (err) throw err;
-        console.log('sikeres csatlakozás');
-    })
-    con.query('select * from User', (err,result) =>{
-        if (err) throw err;
-        res.send(result);
-    })   
-}
+
 
 function getUserDataFromId(req,res) {
     var con = mysql.createConnection(config.database);
@@ -82,23 +71,6 @@ async function regUser (req,res)  {
     })   
 }
 
-function createNewAddress (req,res) {
-    var con = mysql.createConnection(config.database);
-    con.connect(function(err) {
-        if (err) throw err; 
-        console.log('sikeres csatlakozás');
-    })
-    const sql = 'insert into Address (zipCode,city,street,userID) values (?,?,?,?)';
-    
-    console.log(sql);
-    con.query(sql,[req.body.zipCode,req.body.city,req.body.street,req.params["id"]], (err,result) =>{
-        if (err) throw err;
-        res.send(result);
-    })   
-}
 
-
-exports.createNewAddress = createNewAddress
-exports.getAllUserInfos = getAllUserInfos
 exports.getUserDataFromId = getUserDataFromId
 exports.regUser = regUser

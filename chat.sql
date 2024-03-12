@@ -45,7 +45,9 @@ end;
 
 delimiter ;
 
-CREATE PROCEDURE updateToken (IN id int, token text)
+drop Procedure updateToken;
+
+CREATE PROCEDURE userUpdateToken(IN id int, token text)
 begin
     update user set user.token = token where user.userid = id;
 end;
