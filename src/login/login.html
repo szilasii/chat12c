@@ -23,7 +23,11 @@
        function login() {
         var formocska = document.getElementById("loginForm") 
         var data = new FormData(formocska)
-        authFetch("http://localhost:8000/api/login",data)
+        authFetch("http://localhost:8000/api/login",data).then((response)=>{
+           window.location.href = "/src/chat.html"
+        }).catch((e) => {
+            console.log(e)
+        })
         
        }
       

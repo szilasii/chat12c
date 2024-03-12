@@ -35,7 +35,7 @@ function signin(req,res) {
                 })
             }
             else{
-                res.status(401).send("nem engedélyezett");
+                res.status(401).send(JSON.stringify("nem engedélyezett"));
             }
             
         })
